@@ -49,11 +49,11 @@ export default function AboutServices() {
                 key={index}
                 className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#60ABD4]"
               >
-                <div className="relative h-64 overflow-hidden bg-gray-50 flex items-center justify-center">
+                <div className="relative h-48 overflow-hidden">
                   <img
                     src={feature.image}
                     alt={feature.title}
-                    className="max-w-full max-h-full object-contain group-hover:scale-105 transition-transform duration-300 p-4"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
 
