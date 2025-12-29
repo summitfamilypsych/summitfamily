@@ -110,8 +110,26 @@ Deno.serve(async (req: Request) => {
 
     if (!emailResponse.ok) {
       const errorData = await emailResponse.text();
-      console.error('Failed to send email:', errorData);
+      console.error('Resend API error:', errorData);
+
+      return new Response(
+        JSON.stringify({
+          success: false,
+          error: 'Failed to send email notification. Please try again or call us directly at (208) 917-2086.',
+          details: errorData
+        }),
+        {
+          status: 500,
+          headers: {
+            ...corsHeaders,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
     }
+
+    const emailResult = await emailResponse.json();
+    console.log('Email sent successfully:', emailResult);
 
     return new Response(
       JSON.stringify({ success: true, message: 'Appointment request submitted successfully' }),
