@@ -22,20 +22,20 @@ export default function Footer() {
             <h4 className="font-semibold text-lg mb-4">Contact Us</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-start gap-2">
-                <MapPin className="w-4 h-4 mt-1 text-amber-400 flex-shrink-0" />
+                <MapPin className="w-4 h-4 mt-1 text-[#60ABD4] flex-shrink-0" />
                 <span className="text-gray-300">
                   2995 N Cole Rd, STE 225<br />
                   Boise, ID 83704
                 </span>
               </div>
               <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-amber-400 flex-shrink-0" />
-                <a href="tel:208-917-2086" className="text-gray-300 hover:text-amber-400 transition-colors">
+                <Phone className="w-4 h-4 text-[#60ABD4] flex-shrink-0" />
+                <a href="tel:208-917-2086" className="text-gray-300 hover:text-[#60ABD4] transition-colors">
                   (208) 917-2086
                 </a>
               </div>
               <div className="flex items-center gap-2">
-                <Printer className="w-4 h-4 text-amber-400 flex-shrink-0" />
+                <Printer className="w-4 h-4 text-[#60ABD4] flex-shrink-0" />
                 <span className="text-gray-300">(208) 330-4447</span>
               </div>
             </div>

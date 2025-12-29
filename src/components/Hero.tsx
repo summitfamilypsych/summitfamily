@@ -6,14 +6,14 @@ interface HeroProps {
 
 export default function Hero({ onScheduleClick }: HeroProps) {
   return (
-    <div className="relative bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 overflow-hidden">
+    <div className="relative bg-gradient-to-br from-blue-50 via-cyan-50 to-sky-50 overflow-hidden">
       <div className="absolute inset-0 bg-white/40"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
         <div className="text-center">
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
             Mental Health Services To<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#60ABD4] to-[#3B82F6]">
               Support Your Well-Being
             </span>
           </h1>
@@ -29,7 +29,7 @@ export default function Hero({ onScheduleClick }: HeroProps) {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={onScheduleClick}
-              className="group bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
+              className="group bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white px-8 py-4 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 flex items-center gap-2"
             >
               <Phone className="w-5 h-5" />
               Schedule a Free 15-Min Call
@@ -37,7 +37,7 @@ export default function Hero({ onScheduleClick }: HeroProps) {
 
             <a
               href="tel:208-917-2086"
-              className="group bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 border-2 border-gray-200 hover:border-amber-300"
+              className="group bg-white text-gray-900 px-8 py-4 rounded-full font-semibold text-lg shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 border-2 border-gray-200 hover:border-[#60ABD4]"
             >
               Call Now: (208) 917-2086
             </a>

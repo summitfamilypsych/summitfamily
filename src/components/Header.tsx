@@ -54,8 +54,8 @@ export default function Header({ onScheduleClick, currentPage }: HeaderProps) {
               onClick={navigateToHome}
               className={`font-medium transition-colors ${
                 currentPage === 'home'
-                  ? 'text-amber-600 font-semibold'
-                  : 'text-gray-700 hover:text-amber-600'
+                  ? 'text-[#60ABD4] font-semibold'
+                  : 'text-gray-700 hover:text-[#60ABD4]'
               }`}
             >
               Home
@@ -64,28 +64,28 @@ export default function Header({ onScheduleClick, currentPage }: HeaderProps) {
               onClick={navigateToProviders}
               className={`font-medium transition-colors ${
                 currentPage === 'providers'
-                  ? 'text-amber-600 font-semibold'
-                  : 'text-gray-700 hover:text-amber-600'
+                  ? 'text-[#60ABD4] font-semibold'
+                  : 'text-gray-700 hover:text-[#60ABD4]'
               }`}
             >
               Our Providers
             </button>
             <button
               onClick={scrollToContact}
-              className="text-gray-700 hover:text-amber-600 font-medium transition-colors"
+              className="text-gray-700 hover:text-[#60ABD4] font-medium transition-colors"
             >
               Contact
             </button>
             <a
               href="tel:208-917-2086"
-              className="flex items-center gap-2 text-gray-700 hover:text-amber-600 font-medium transition-colors"
+              className="flex items-center gap-2 text-gray-700 hover:text-[#60ABD4] font-medium transition-colors"
             >
               <Phone className="w-4 h-4" />
               (208) 917-2086
             </a>
             <button
               onClick={onScheduleClick}
-              className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
+              className="bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
             >
               Schedule Call
             </button>
@@ -106,8 +106,8 @@ export default function Header({ onScheduleClick, currentPage }: HeaderProps) {
                 onClick={navigateToHome}
                 className={`font-medium transition-colors text-left ${
                   currentPage === 'home'
-                    ? 'text-amber-600 font-semibold'
-                    : 'text-gray-700 hover:text-amber-600'
+                    ? 'text-[#60ABD4] font-semibold'
+                    : 'text-gray-700 hover:text-[#60ABD4]'
                 }`}
               >
                 Home
@@ -116,21 +116,21 @@ export default function Header({ onScheduleClick, currentPage }: HeaderProps) {
                 onClick={navigateToProviders}
                 className={`font-medium transition-colors text-left ${
                   currentPage === 'providers'
-                    ? 'text-amber-600 font-semibold'
-                    : 'text-gray-700 hover:text-amber-600'
+                    ? 'text-[#60ABD4] font-semibold'
+                    : 'text-gray-700 hover:text-[#60ABD4]'
                 }`}
               >
                 Our Providers
               </button>
               <button
                 onClick={scrollToContact}
-                className="text-gray-700 hover:text-amber-600 font-medium transition-colors text-left"
+                className="text-gray-700 hover:text-[#60ABD4] font-medium transition-colors text-left"
               >
                 Contact
               </button>
               <a
                 href="tel:208-917-2086"
-                className="flex items-center gap-2 text-gray-700 hover:text-amber-600 font-medium transition-colors"
+                className="flex items-center gap-2 text-gray-700 hover:text-[#60ABD4] font-medium transition-colors"
               >
                 <Phone className="w-4 h-4" />
                 (208) 917-2086
@@ -140,7 +140,7 @@ export default function Header({ onScheduleClick, currentPage }: HeaderProps) {
                   onScheduleClick();
                   setIsMobileMenuOpen(false);
                 }}
-                className="bg-gradient-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-full font-semibold text-center"
+                className="bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white px-6 py-3 rounded-full font-semibold text-center"
               >
                 Schedule Call
               </button>

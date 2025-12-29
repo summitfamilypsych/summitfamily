@@ -95,10 +95,10 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
       <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl">
-        <div className="sticky top-0 bg-gradient-to-r from-amber-500 to-orange-500 text-white p-6 flex justify-between items-center rounded-t-3xl">
+        <div className="sticky top-0 bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white p-6 flex justify-between items-center rounded-t-3xl">
           <div>
             <h2 className="text-2xl font-bold">Schedule Your Free 15-Minute Call</h2>
-            <p className="text-amber-50 mt-1">Let's start your journey to wellness together</p>
+            <p className="text-blue-50 mt-1">Let's start your journey to wellness together</p>
           </div>
           <button
             onClick={onClose}
@@ -152,7 +152,7 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
                   value={formData.name}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#60ABD4] focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                   placeholder="John Doe"
                 />
               </div>
@@ -167,7 +167,7 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#60ABD4] focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                   placeholder="john@example.com"
                 />
               </div>
@@ -201,7 +201,7 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
                   onChange={handleChange}
                   min={today}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all outline-none"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#60ABD4] focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                 />
               </div>
 
@@ -215,7 +215,7 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
                   value={formData.preferred_time}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all outline-none bg-white"
+                  className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#60ABD4] focus:ring-2 focus:ring-blue-200 transition-all outline-none bg-white"
                 >
                   <option value="">Select a time</option>
                   {timeSlots.map((slot) => (
@@ -250,7 +250,7 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
             <button
               type="submit"
               disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
             >
               {isSubmitting ? 'Submitting...' : 'Request Appointment'}
             </button>

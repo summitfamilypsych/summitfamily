@@ -66,7 +66,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="py-20 bg-gradient-to-br from-gray-50 to-amber-50" id="contact">
+    <div className="py-20 bg-gradient-to-br from-gray-50 to-blue-50" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
@@ -82,7 +82,7 @@ export default function ContactForm() {
 
               <div className="space-y-6">
                 <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-3 rounded-xl">
+                  <div className="bg-gradient-to-br from-[#60ABD4] to-[#3B82F6] p-3 rounded-xl">
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -95,19 +95,19 @@ export default function ContactForm() {
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-orange-400 to-rose-500 p-3 rounded-xl">
+                  <div className="bg-gradient-to-br from-[#3B82F6] to-[#2563EB] p-3 rounded-xl">
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-1">Phone</h4>
-                    <a href="tel:208-917-2086" className="text-amber-600 hover:text-amber-700 font-medium">
+                    <a href="tel:208-917-2086" className="text-[#60ABD4] hover:text-[#3B82F6] font-medium">
                       (208) 917-2086
                     </a>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4">
-                  <div className="bg-gradient-to-br from-rose-400 to-pink-500 p-3 rounded-xl">
+                  <div className="bg-gradient-to-br from-[#60ABD4] to-[#4F9FD4] p-3 rounded-xl">
                     <Printer className="w-6 h-6 text-white" />
                   </div>
                   <div>
@@ -118,7 +118,7 @@ export default function ContactForm() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl p-8 text-white shadow-lg">
+            <div className="bg-gradient-to-br from-[#60ABD4] to-[#3B82F6] rounded-2xl p-8 text-white shadow-lg">
               <h3 className="text-2xl font-bold mb-4">Office Hours</h3>
               <div className="space-y-3">
                 <div className="flex justify-between">
@@ -130,7 +130,7 @@ export default function ContactForm() {
                   <span>Closed</span>
                 </div>
               </div>
-              <p className="mt-6 text-amber-50 text-sm">
+              <p className="mt-6 text-blue-50 text-sm">
                 Evening appointments available by request
               </p>
             </div>
@@ -150,7 +150,7 @@ export default function ContactForm() {
             ) : (
               <>
                 <div className="flex items-center gap-3 mb-6">
-                  <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-2 rounded-lg">
+                  <div className="bg-gradient-to-br from-[#60ABD4] to-[#3B82F6] p-2 rounded-lg">
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <h3 className="text-2xl font-bold text-gray-900">Send Us a Message</h3>
@@ -167,7 +167,7 @@ export default function ContactForm() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#60ABD4] focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                       placeholder="John Doe"
                     />
                   </div>
@@ -183,7 +183,7 @@ export default function ContactForm() {
                         value={formData.email}
                         onChange={handleChange}
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all outline-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#60ABD4] focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                         placeholder="john@example.com"
                       />
                     </div>
@@ -197,7 +197,7 @@ export default function ContactForm() {
                         name="phone"
                         value={formData.phone}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all outline-none"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#60ABD4] focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                         placeholder="(208) 123-4567"
                       />
                     </div>
@@ -213,7 +213,7 @@ export default function ContactForm() {
                       value={formData.subject}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-amber-500 focus:ring-2 focus:ring-amber-200 transition-all outline-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-300 focus:border-[#60ABD4] focus:ring-2 focus:ring-blue-200 transition-all outline-none"
                       placeholder="How can we help you?"
                     />
                   </div>
@@ -242,7 +242,7 @@ export default function ContactForm() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-amber-500 to-orange-500 text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
                     {isSubmitting ? 'Sending...' : 'Send Message'}
                   </button>

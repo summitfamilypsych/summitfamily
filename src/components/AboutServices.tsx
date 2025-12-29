@@ -1,4 +1,7 @@
 import { Users, Target, Award } from 'lucide-react';
+import ourPracticeImg from '../assets/our_practice_image.webp';
+import ourServicesImg from '../assets/our_services_photo.webp';
+import ourPromiseImg from '../assets/our_patient_promise_image.webp';
 
 export default function AboutServices() {
   const features = [
@@ -7,21 +10,24 @@ export default function AboutServices() {
       title: 'Our Practice',
       description:
         'Our experience enables us to offer effective outpatient, individualized, mental health services. We treat those struggling with anxiety, depression, and mood disorders while providing a neutral ground to individuals and families.',
-      gradient: 'from-amber-400 to-orange-500',
+      gradient: 'from-[#60ABD4] to-[#3B82F6]',
+      image: ourPracticeImg,
     },
     {
       icon: Target,
       title: 'Our Treatment Focus',
       description:
         'Our focus is to help children, adolescents, and adults heal, energize, and become aware of their inner strengths within the family unit. We achieve this by providing a neutral safe space, listening to your concerns, and customizing a treatment plan.',
-      gradient: 'from-orange-400 to-rose-500',
+      gradient: 'from-[#3B82F6] to-[#2563EB]',
+      image: ourServicesImg,
     },
     {
       icon: Award,
       title: 'Our Patient Promise',
       description:
         'We promise to be there for every step of your journey. Our goal is to help you grow from your struggles, heal from your pain, and get to the Summit of your life!',
-      gradient: 'from-rose-400 to-pink-500',
+      gradient: 'from-[#60ABD4] to-[#4F9FD4]',
+      image: ourPromiseImg,
     },
   ];
 
@@ -41,19 +47,29 @@ export default function AboutServices() {
             return (
               <div
                 key={index}
-                className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-amber-200"
+                className="group bg-gradient-to-br from-white to-gray-50 rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-[#60ABD4]"
               >
-                <div
-                  className={`bg-gradient-to-br ${feature.gradient} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
-                >
-                  <Icon className="w-8 h-8 text-white" />
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={feature.image}
+                    alt={feature.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {feature.title}
-                </h3>
+                <div className="p-8">
+                  <div
+                    className={`bg-gradient-to-br ${feature.gradient} w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg`}
+                  >
+                    <Icon className="w-8 h-8 text-white" />
+                  </div>
 
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-4">
+                    {feature.title}
+                  </h3>
+
+                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                </div>
               </div>
             );
           })}

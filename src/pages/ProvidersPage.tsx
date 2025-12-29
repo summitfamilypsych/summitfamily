@@ -23,7 +23,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white via-amber-50/30 to-white">
+    <div className="min-h-screen bg-gradient-to-b from-white via-blue-50/30 to-white">
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -34,12 +34,12 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
           </div>
 
           <div className="max-w-5xl mx-auto">
-            <div className="bg-gradient-to-br from-white to-amber-50 rounded-3xl shadow-xl overflow-hidden border border-amber-100">
+            <div className="bg-gradient-to-br from-white to-blue-50 rounded-3xl shadow-xl overflow-hidden border border-blue-100">
               <div className="p-8 md:p-12">
                 <div className="flex flex-col md:flex-row gap-8 items-start mb-8">
                   <div className="flex-shrink-0">
                     <div className="relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-orange-500 rounded-2xl transform rotate-3"></div>
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#60ABD4] to-[#3B82F6] rounded-2xl transform rotate-3"></div>
                       <img
                         src="https://img1.wsimg.com/isteam/ip/abb69e89-f3ee-4a6f-b359-78a9909a4159/headshot.png/:/cr=t:13.29%25,l:13.24%25,w:73.53%25,h:73.41%25/rs=w:400,h:533.3333333333334,cg:true,m"
                         alt="Griffith Jenkins"
@@ -50,7 +50,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
 
                   <div className="flex-1">
                     <h2 className="text-4xl font-bold text-gray-900 mb-2">Griffith Jenkins</h2>
-                    <p className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-amber-600 to-orange-600">
+                    <p className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-[#60ABD4] to-[#3B82F6]">
                       LMHC, LPC
                     </p>
                   </div>
@@ -58,7 +58,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
 
                 <div className="space-y-6">
                     <div className="flex items-start gap-3">
-                      <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-2 rounded-lg flex-shrink-0 mt-1">
+                      <div className="bg-gradient-to-br from-[#60ABD4] to-[#3B82F6] p-2 rounded-lg flex-shrink-0 mt-1">
                         <GraduationCap className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -71,7 +71,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="bg-gradient-to-br from-orange-400 to-rose-500 p-2 rounded-lg flex-shrink-0 mt-1">
+                      <div className="bg-gradient-to-br from-[#3B82F6] to-[#2563EB] p-2 rounded-lg flex-shrink-0 mt-1">
                         <Briefcase className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -85,7 +85,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="bg-gradient-to-br from-rose-400 to-pink-500 p-2 rounded-lg flex-shrink-0 mt-1">
+                      <div className="bg-gradient-to-br from-[#60ABD4] to-[#4F9FD4] p-2 rounded-lg flex-shrink-0 mt-1">
                         <Heart className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -99,7 +99,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
                     </div>
 
                     <div className="flex items-start gap-3">
-                      <div className="bg-gradient-to-br from-amber-400 to-orange-500 p-2 rounded-lg flex-shrink-0 mt-1">
+                      <div className="bg-gradient-to-br from-[#3B82F6] to-[#2563EB] p-2 rounded-lg flex-shrink-0 mt-1">
                         <Users className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -112,19 +112,19 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
                       </div>
                     </div>
 
-                    <div className="bg-gradient-to-r from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-200">
+                    <div className="bg-gradient-to-r from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-200">
                       <h3 className="font-semibold text-gray-900 mb-3">Insurance Accepted</h3>
                       <div className="grid grid-cols-2 gap-2 text-sm">
                         {insuranceProviders.map((provider) => (
                           <div key={provider} className="flex items-center gap-2">
-                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-amber-500 to-orange-500 rounded-full"></div>
+                            <div className="w-1.5 h-1.5 bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] rounded-full"></div>
                             <span className="text-gray-700">{provider}</span>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                  <div className="bg-gradient-to-br from-gray-50 to-amber-50 rounded-2xl p-6 border border-gray-200">
+                  <div className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-6 border border-gray-200">
                     <p className="text-gray-600 text-sm leading-relaxed italic">
                       Outside of providing counseling, Griffith loves to spend time with his family, play games,
                       and spend time in the great outdoors.
@@ -134,7 +134,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
               </div>
             </div>
 
-            <div className="mt-12 bg-gradient-to-br from-amber-50 to-orange-50 rounded-3xl shadow-lg border border-amber-200 p-8 md:p-12">
+            <div className="mt-12 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-3xl shadow-lg border border-blue-200 p-8 md:p-12">
               <div className="text-center max-w-2xl mx-auto">
                 <h2 className="text-3xl font-bold text-gray-900 mb-4">Ready to Get Started?</h2>
                 <p className="text-lg text-gray-600 mb-8">
@@ -144,7 +144,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
                   <button
                     onClick={onScheduleClick}
-                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-orange-500 text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg"
+                    className="flex items-center justify-center gap-2 bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg"
                   >
                     <Calendar className="w-5 h-5" />
                     Schedule Call
@@ -152,14 +152,14 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
 
                   <a
                     href="tel:208-917-2086"
-                    className="flex items-center justify-center gap-2 bg-white text-gray-900 border-2 border-amber-500 px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg"
+                    className="flex items-center justify-center gap-2 bg-white text-gray-900 border-2 border-[#60ABD4] px-8 py-4 rounded-full font-semibold hover:shadow-xl transform hover:-translate-y-1 transition-all duration-200 text-lg"
                   >
                     <Phone className="w-5 h-5" />
                     Call (208) 917-2086
                   </a>
                 </div>
 
-                <div className="mt-8 pt-8 border-t border-amber-200">
+                <div className="mt-8 pt-8 border-t border-blue-200">
                   <p className="text-sm text-gray-600">
                     <strong>Office Location:</strong> 2995 N Cole Rd, STE 225, Boise, ID 83704
                   </p>
