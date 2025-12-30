@@ -102,7 +102,7 @@ Deno.serve(async (req: Request) => {
       },
       body: JSON.stringify({
         from: 'Summit Family <onboarding@resend.dev>',
-        to: ['dswantek208@gmail.com'],
+        to: ['Gjenkins.counseling@outlook.com'],
         subject: `New Appointment Request from ${appointmentData.name}`,
         html: emailHtml,
       }),
