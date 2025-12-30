@@ -4,6 +4,7 @@ import Footer from './components/Footer';
 import AppointmentScheduler from './components/AppointmentScheduler';
 import HomePage from './pages/HomePage';
 import ProvidersPage from './pages/ProvidersPage';
+import mountainsBackground from './assets/mountains_background.webp';
 
 function App() {
   const [isSchedulerOpen, setIsSchedulerOpen] = useState(false);
@@ -32,7 +33,10 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div
+      className="min-h-screen bg-cover bg-center bg-fixed"
+      style={{ backgroundImage: `url(${mountainsBackground})` }}
+    >
       <Header
         onScheduleClick={() => setIsSchedulerOpen(true)}
         currentPage={currentPage}
