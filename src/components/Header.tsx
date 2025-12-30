@@ -38,7 +38,7 @@ export default function Header({ onScheduleClick, currentPage }: HeaderProps) {
   };
 
   return (
-    <header className="bg-white/95 backdrop-blur-sm shadow-sm sticky top-0 z-40">
+    <header className="bg-white/70 backdrop-blur-sm shadow-sm sticky top-0 z-40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <button onClick={navigateToHome} className="flex items-center">

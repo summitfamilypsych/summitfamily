@@ -6,8 +6,8 @@ interface HeroProps {
 
 export default function Hero({ onScheduleClick }: HeroProps) {
   return (
-    <div className="relative bg-gradient-to-br from-blue-50/90 via-cyan-50/90 to-sky-50/90 overflow-hidden">
-      <div className="absolute inset-0 bg-white/50 backdrop-blur-sm"></div>
+    <div className="relative bg-gradient-to-br from-blue-50/60 via-cyan-50/60 to-sky-50/60 overflow-hidden">
+      <div className="absolute inset-0 bg-white/30 backdrop-blur-sm"></div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32">
         <div className="text-center">
@@ -45,7 +45,7 @@ export default function Hero({ onScheduleClick }: HeroProps) {
         </div>
       </div>
 
-      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-white/50 to-transparent"></div>
     </div>
   );
 }

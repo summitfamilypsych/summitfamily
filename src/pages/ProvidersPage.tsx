@@ -23,7 +23,7 @@ export default function ProvidersPage({ onScheduleClick }: ProvidersPageProps) {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white/80 via-blue-50/30 to-white/80 backdrop-blur-sm">
+    <div className="min-h-screen bg-gradient-to-b from-white/50 via-blue-50/20 to-white/50 backdrop-blur-sm">
       <div className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
