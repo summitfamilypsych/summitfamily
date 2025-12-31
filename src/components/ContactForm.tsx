@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Mail, MapPin, Phone, Printer, CheckCircle } from 'lucide-react';
+import { Mail, MapPin, Phone, Printer, CheckCircle, AlertCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,34 +11,49 @@ export default function ContactForm() {
     message: '',
   });
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [isSending, setIsSending] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSending(true);
+    setIsError(false);
 
-    const subject = formData.subject || 'Contact Form Submission';
-    const body = `
-Name: ${formData.name}
-Email: ${formData.email}
-Phone: ${formData.phone || 'N/A'}
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          phone: formData.phone || 'N/A',
+          subject: formData.subject,
+          message: formData.message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
 
-Message:
-${formData.message}
-    `.trim();
+      setIsSuccess(true);
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+      });
 
-    window.location.href = `mailto:info@yourdomain.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    setIsSuccess(true);
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
-    });
-
-    setTimeout(() => {
-      setIsSuccess(false);
-    }, 5000);
+      setTimeout(() => {
+        setIsSuccess(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Failed to send email:', error);
+      setIsError(true);
+      setTimeout(() => {
+        setIsError(false);
+      }, 5000);
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -129,6 +145,22 @@ ${formData.message}
                   Thank you for contacting us. We'll get back to you within 1 business day.
                 </p>
               </div>
+            ) : isError ? (
+              <div className="text-center py-12">
+                <div className="bg-red-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                  <AlertCircle className="w-12 h-12 text-red-600" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-2">Error Sending Message</h3>
+                <p className="text-gray-600">
+                  Something went wrong. Please try again or call us directly.
+                </p>
+                <button
+                  onClick={() => setIsError(false)}
+                  className="mt-6 px-6 py-2 bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white rounded-xl font-semibold hover:shadow-lg transition-all"
+                >
+                  Try Again
+                </button>
+              </div>
             ) : (
               <>
                 <div className="flex items-center gap-3 mb-6">
@@ -217,9 +249,10 @@ ${formData.message}
 
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
+                    disabled={isSending}
+                    className="w-full bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                   >
-                    Send Message
+                    {isSending ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </>
