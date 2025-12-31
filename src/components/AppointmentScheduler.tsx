@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Calendar, Clock, X, CheckCircle, Phone } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 interface AppointmentSchedulerProps {
   isOpen: boolean;
@@ -16,9 +15,7 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
     preferred_time: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
 
   const timeSlots = [
     '9:00 AM - 9:15 AM',
@@ -35,50 +32,35 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
     '4:00 PM - 4:15 PM',
   ];
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setError('');
 
-    try {
-      const { error: submitError } = await supabase
-        .from('appointment_requests')
-        .insert([formData]);
+    const subject = `Appointment Request - ${formData.name}`;
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Preferred Date: ${formData.preferred_date}
+Preferred Time: ${formData.preferred_time}
+Message: ${formData.message || 'N/A'}
+    `.trim();
 
-      if (submitError) throw submitError;
+    window.location.href = `mailto:info@yourdomain.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const emailResponse = await fetch(`${supabaseUrl}/functions/v1/send-appointment-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    setIsSuccess(true);
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      preferred_date: '',
+      preferred_time: '',
+      message: '',
+    });
 
-      if (!emailResponse.ok) {
-        console.error('Failed to send email notification');
-      }
-
-      setIsSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        preferred_date: '',
-        preferred_time: '',
-        message: '',
-      });
-
-      setTimeout(() => {
-        setIsSuccess(false);
-        onClose();
-      }, 3000);
-    } catch (err) {
-      setError('Unable to submit your request. Please call us directly at (208) 917-2086.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    setTimeout(() => {
+      setIsSuccess(false);
+      onClose();
+    }, 3000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -241,18 +223,11 @@ export default function AppointmentScheduler({ isOpen, onClose }: AppointmentSch
               />
             </div>
 
-            {error && (
-              <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl">
-                {error}
-              </div>
-            )}
-
             <button
               type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+              className="w-full bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
             >
-              {isSubmitting ? 'Submitting...' : 'Request Appointment'}
+              Request Appointment
             </button>
 
             <p className="text-center text-sm text-gray-500">

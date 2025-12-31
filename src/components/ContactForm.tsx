@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Mail, MapPin, Phone, Printer, CheckCircle } from 'lucide-react';
-import { supabase } from '../lib/supabase';
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,52 +9,35 @@ export default function ContactForm() {
     subject: '',
     message: '',
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-    setError('');
 
-    try {
-      const { error: submitError } = await supabase
-        .from('contact_submissions')
-        .insert([formData]);
+    const subject = formData.subject || 'Contact Form Submission';
+    const body = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'N/A'}
 
-      if (submitError) throw submitError;
+Message:
+${formData.message}
+    `.trim();
 
-      const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-      const emailResponse = await fetch(`${supabaseUrl}/functions/v1/send-contact-email`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+    window.location.href = `mailto:info@yourdomain.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-      if (!emailResponse.ok) {
-        console.error('Failed to send email notification');
-      }
+    setIsSuccess(true);
+    setFormData({
+      name: '',
+      email: '',
+      phone: '',
+      subject: '',
+      message: '',
+    });
 
-      setIsSuccess(true);
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        subject: '',
-        message: '',
-      });
-
-      setTimeout(() => {
-        setIsSuccess(false);
-      }, 5000);
-    } catch (err) {
-      setError('Unable to submit your message. Please call us at (208) 917-2086.');
-    } finally {
-      setIsSubmitting(false);
-    }
+    setTimeout(() => {
+      setIsSuccess(false);
+    }, 5000);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -233,18 +215,11 @@ export default function ContactForm() {
                     />
                   </div>
 
-                  {error && (
-                    <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-xl text-sm">
-                      {error}
-                    </div>
-                  )}
-
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                    className="w-full bg-gradient-to-r from-[#60ABD4] to-[#3B82F6] text-white py-4 rounded-xl font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
                   >
-                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                    Send Message
                   </button>
                 </form>
               </>
